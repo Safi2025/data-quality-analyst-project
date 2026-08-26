@@ -1,0 +1,35 @@
+#  Data Quality & Business Analytics Pipeline (PostgreSQL & Python)
+
+##  Présentation du Projet
+Ce projet met en place une pipeline automatisée d'audit Data Quality et d'analyse de portefeuille d'assurance. Il permet de détecter les anomalies de données (complétude, unicité, intégrité référentielle, règles métier) et de calculer les indicateurs clés de performance (KPIs) de l'activité.
+
+---
+
+##  Stack Technique
+* **Base de données** : PostgreSQL 15+
+* **Langage & Frameworks** : Python 3.10+, SQLAlchemy, Pandas
+* **Environnement** : Virtualenv (`venv`), macOS (Apple Silicon)
+
+---
+
+## Architecture du Projet
+```text
+data-quality-analyst-project/
+├── data/                       # Données brutes au format CSV
+│   ├── clients.csv
+│   ├── contrats.csv
+│   ├── sinistres.csv
+│   └── paiements.csv
+├── sql/                        # Scripts SQL ordonnés
+│   ├── 01_create_tables.sql    # DDL : Structure des tables
+│   ├── 02_insert_data.sql      # DML : Insertion des données de test
+│   ├── 03_quality_checks.sql   # Audit : Requêtes de contrôle de qualité
+│   └── 04_business_queries.sql # Business : Requêtes analytiques / KPIs
+├── python/                     # Scripts d'automatisation Python
+│   ├── database.py             # Connexion SQLAlchemy et moteur d'exécution
+│   ├── tests.py                # Lanceur automatisé d'audits Data Quality
+│   └── business_analytics.py   # Calcul et export des KPIs métier
+└── reports/                    # Expositions CSV des rapports générés
+    ├── quality_report.csv
+    ├── kpi_ca_par_type.csv
+    └── kpi_ratio_sp.csv

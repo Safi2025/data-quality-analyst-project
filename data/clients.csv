@@ -1,0 +1,6 @@
+client_id,nom,prenom,email,date_naissance,ville,code_postal,date_creation
+1,DUPONT,Jean,jean.dupont@email.com,1985-04-12,Niort,79000,2023-01-15
+2,MARTIN,Sophie,,1990-08-23,Paris,75011,2023-02-01
+3,DURAND,Pierre,pierre.durand_at_email.com,1978-11-05,Bordeaux,33000,2023-03-10
+3,DURAND,Pierre,pierre.durand@email.com,1978-11-05,Bordeaux,33000,2023-03-10
+4,MOREAU,Julie,julie.moreau@email.com,2002-06-30,Niort,79000,2023-04-18

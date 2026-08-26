@@ -1,0 +1,4 @@
+contrat_id,type_contrat,prime_annuelle,total_sinistres,ratio_sp_pourcent
+101,AUTO,650.0,1200.0,184.62
+104,AUTO,550.0,0.0,0.0
+103,SANTE,480.0,0.0,0.0
