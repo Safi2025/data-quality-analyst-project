@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Service Base de données PostgreSQL
+  # Service 1 : Serveur de Base de Données
   postgres_db:
     image: postgres:15
     container_name: postgres_data_quality
@@ -12,12 +12,11 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
-      # Exécution automatique des scripts DDL et DML à l'initialisation
+      - pgdata:/var/lib/postgresql/data # Volume pour persister les données de la DB
       - ./sql/01_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
       - ./sql/02_insert_data.sql:/docker-entrypoint-initdb.d/02_insert_data.sql
 
-  # Service Python Audit Data Quality
+  # Service 2 : Exécuteur d'Audit & Analytics Python
   data_quality_runner:
     build: .
     container_name: python_data_quality
@@ -27,8 +26,11 @@ services:
       DB_NAME: data_quality_db
       DB_USER: postgres
       DB_PASSWORD: postgrespassword
+    volumes:
+      - ./reports:/app/reports # Dossier local pour récupérer vos CSV
     depends_on:
       - postgres_db
 
+# Déclaration du volume de la base de données
 volumes:
   pgdata:
