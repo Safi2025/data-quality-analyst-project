@@ -39,4 +39,4 @@ WHERE date_fin < date_debut;
 SELECT p.paiement_id, p.contrat_id, p.montant AS montant_paiement, c.prime_annuelle
 FROM paiements p
 JOIN contrats c ON p.contrat_id = c.contrat_id
-WHERE p.montant > c.prime_annuelle;
+WHERE p.montant > c.prime_annuelle; -- Controles data quality prets pour revue
