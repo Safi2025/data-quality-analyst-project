@@ -12,9 +12,15 @@ jobs:
 
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Build and run Docker Compose
-        run: docker compose up --build --exit-code-from data_quality_runner
+      - name: Start PostgreSQL Database
+        run: docker compose up -d postgres_db
+
+      - name: Wait for PostgreSQL to be ready
+        run: sleep 5
+
+      - name: Run Data Quality Checks and Log Results
+        run: docker compose run --rm data_quality_runner
