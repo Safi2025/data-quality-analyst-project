@@ -39,3 +39,12 @@ CREATE TABLE paiements (
     montant NUMERIC(10,2),
     statut VARCHAR(20)
 );
+
+CREATE TABLE IF NOT EXISTS data_quality_logs (
+    log_id SERIAL PRIMARY KEY,
+    execution_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    check_name VARCHAR(150) NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    anomalies_count INT NOT NULL,
+    details TEXT
+);
