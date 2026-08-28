@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie du reste du projet
 COPY . .
 
-# Commande par défaut : lance l'audit Data Quality
-CMD ["python", "python/tests.py"]
+# Au lieu de juste lancer tests.py, lancez un script d'exécution globale ou tests.py puis business_analytics.py
+CMD ["python", "python/main.py"]
